@@ -53,5 +53,6 @@ jobs:
         run: |
           sudo pip install coscmd
           coscmd config -r ${{ env.COS_REGION }} -b ${{ env.COS_BUCKET }} -a ${{ env.COS_SECRET_ID}} -s ${{ env.COS_SECRET_KEY}}
-          coscmd upload -rsfy --delete ${{ env.local-dir}} ${{ env.cos-dir}} --ignore "/home/runner/work/www/www/.git/" --ignore "/home/runner/work/www/www/.github/*"
+          rm -rf .git/ .github/
+          coscmd upload -rsfy --delete ${{ env.local-dir}} ${{ env.cos-dir}}
           echo $(pwd)

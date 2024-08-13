@@ -53,7 +53,4 @@ jobs:
         run: |
           sudo pip install coscmd
           coscmd config -r ${{ env.COS_REGION }} -b ${{ env.COS_BUCKET }} -a ${{ env.COS_SECRET_ID}} -s ${{ env.COS_SECRET_KEY}}
-          coscmd upload -rsfy --delete ${{ env.local-dir}} ${{ env.cos-dir}}
-
-
-  
+          coscmd upload -rsfy --delete ${{ env.local-dir}} ${{ env.cos-dir}} --ignore "./git/,./github/"
